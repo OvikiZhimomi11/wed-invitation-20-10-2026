@@ -1,0 +1,6 @@
+{
+  "name": "Hikety & Wilson Wedding Invitation",
+  "description": "An elegant, interactive royal teal and gold digital wedding invitation for Hikety and Wilson.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

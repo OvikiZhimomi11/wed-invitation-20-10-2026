@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+  .font-pinyon {
+    font-family: 'Pinyon Script', cursive;
+  }
+  .font-alex {
+    font-family: 'Alex Brush', cursive;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-1500 {
+    perspective: 1500px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Custom gold gradient text utility */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #f5e4b7 0%, #d4af37 35%, #9b7818 70%, #fef3c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-foil-bg {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 30%, #c59b27 60%, #e8c76b 85%, #9b7818 100%);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to bottom right, #f3e5ab, #c59b27, #9b7818, #e8c76b) 1;
+}
+
+/* Custom subtle ambient glow */
+.gold-glow {
+  box-shadow: 0 0 25px -3px rgba(212, 175, 55, 0.35);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 45px -5px rgba(212, 175, 55, 0.45);
+}
+
+.gold-inner-shadow {
+  box-shadow: inset 0 0 20px rgba(197, 155, 39, 0.15);
+}
