@@ -17,7 +17,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('cover');
   const [isFlipped, setIsFlipped] = useState(true);
 
-  // Transition from Hero to Card: Guest sees the Cover page first!
+  // Transition from Hero to Cover first
   const handleOpenCard = () => {
     setScreen('invitation');
     setActiveTab('cover');
@@ -43,8 +43,8 @@ export default function App() {
 
   const handleConfettiTrigger = () => {
     confetti({
-      particleCount: 75,
-      spread: 80,
+      particleCount: 50,
+      spread: 70,
       origin: { y: 0.6 },
       colors: ['#f5e4b7', '#d4af37', '#c59b27', '#e8c76b', '#ffffff'],
     });
@@ -132,29 +132,9 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-
-                {/* Card Flip Helper Control below card */}
-                <div className="mt-4 flex items-center justify-center">
-                  <button
-                    onClick={handleToggleFlip}
-                    type="button"
-                    className="flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#0c3843]/85 hover:bg-[#14505f] border border-[#c59b27]/40 text-[#f5e4b7] text-xs font-cinzel transition-all shadow-md cursor-pointer"
-                    title="Flip between Cover and Inside Card"
-                  >
-                    <RefreshCw className="w-3.5 h-3.5 text-[#e8c76b]" />
-                    <span>{isFlipped ? 'Open Inside Card' : 'Flip to Cover'}</span>
-                  </button>
-                </div>
               </div>
             )}
           </main>
-
-          {/* Footer */}
-          <footer className="relative z-10 text-center text-stone-400 text-xs py-3 mt-4">
-            <p className="font-cormorant italic text-[11px] sm:text-xs text-[#a3c3cb]/70">
-              Hikety &amp; Wilson &bull; Holy Matrimony &bull; Satakha Town Baptist Church &bull; Nagaland
-            </p>
-          </footer>
         </div>
       )}
     </div>

@@ -3,10 +3,10 @@ import { MapPin, Navigation, Copy, Check, ExternalLink, Clock, Calendar, Church 
 import { VintageCorner } from './Ornaments';
 
 interface GoogleMapTabProps {
-  onBackToInvitation: () => void;
+  onBackToInvitation?: () => void;
 }
 
-export const GoogleMapTab: React.FC<GoogleMapTabProps> = ({ onBackToInvitation }) => {
+export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
   const [copied, setCopied] = useState(false);
 
   const churchName = 'Satakha Town Baptist Church';
@@ -153,17 +153,6 @@ export const GoogleMapTab: React.FC<GoogleMapTabProps> = ({ onBackToInvitation }
           >
             <span>View Place in Maps</span>
           </a>
-        </div>
-
-        {/* Return back to invitation */}
-        <div className="text-center pt-1 pb-1">
-          <button
-            onClick={onBackToInvitation}
-            type="button"
-            className="text-xs font-cinzel tracking-wider text-[#e8c76b] hover:text-[#fff3d1] underline underline-offset-4 transition-colors cursor-pointer"
-          >
-            ← Return to Inside Invitation Card
-          </button>
         </div>
       </div>
     </div>

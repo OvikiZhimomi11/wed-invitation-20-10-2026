@@ -50,21 +50,21 @@ export const InsideInvitationCard: React.FC<InsideInvitationCardProps> = ({
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-between items-center px-5 sm:px-8 py-4 sm:py-5 text-center overflow-y-auto custom-scrollbar">
+      <div className="relative z-10 h-full flex flex-col justify-between items-center px-4 sm:px-7 py-3 sm:py-4 text-center overflow-hidden">
         {/* ========================================================================= */}
         {/* SECTION 1: TOP HEADER WITH BRIDE & GROOM INITIALS MONOGRAM WREATH        */}
         {/* ========================================================================= */}
         <div className="flex flex-col items-center w-full pt-0.5">
           {/* Botanical wildflower wreath encircling the bride & groom's H - & - P initials */}
           <BrideGroomWreathMonogram
-            size={135}
-            className="mb-0.5 transform scale-95 sm:scale-100 transition-transform"
+            size={120}
+            className="mb-0.5 transform scale-90 sm:scale-100 transition-transform"
           />
 
           {/* Scripture verse in Cormorant Garamond styled in dark blue / black */}
-          <blockquote className="font-cormorant italic text-[12.5px] sm:text-[14px] leading-relaxed text-[#0a1926] font-medium max-w-[340px] mx-auto px-2">
+          <blockquote className="font-cormorant italic text-[12px] sm:text-[13.5px] leading-snug text-[#0a1926] font-medium max-w-[340px] mx-auto px-2">
             &ldquo;May your constant love be with us, Lord, as we put our hope in you.&rdquo;
-            <span className="block not-italic font-cinzel text-[9.5px] sm:text-[10px] tracking-wider text-[#8a670f] mt-0.5 font-semibold uppercase">
+            <span className="block not-italic font-cinzel text-[9px] sm:text-[10px] tracking-wider text-[#8a670f] mt-0.5 font-semibold uppercase">
               Psalm 33:22
             </span>
           </blockquote>
@@ -157,18 +157,9 @@ export const InsideInvitationCard: React.FC<InsideInvitationCardProps> = ({
           </div>
 
           {/* Classic vintage golden flourish divider at the bottom */}
-          <div className="mt-2 w-full flex justify-center">
+          <div className="mt-2.5 w-full flex justify-center">
             <GoldenFlourishDivider width="w-36 sm:w-44" />
           </div>
-
-          {/* Prompt to flip back to cover */}
-          <button
-            onClick={onFlipToCover}
-            type="button"
-            className="mt-1 text-[9.5px] font-cormorant italic text-stone-500 hover:text-[#8a670f] transition-colors cursor-pointer"
-          >
-            ← View Card Cover
-          </button>
         </div>
       </div>
     </div>

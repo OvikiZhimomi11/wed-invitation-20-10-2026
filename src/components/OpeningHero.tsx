@@ -78,29 +78,18 @@ export const OpeningHero: React.FC<OpeningHeroProps> = ({ onOpenCard }) => {
         <VintageCorner position="bottom-right" size={32} color="#c59b27" />
       </div>
 
-      {/* Center content */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
-        {/* Monogram Seal */}
-        <div className="mb-6 flex flex-col items-center">
-          <div className="w-18 h-20 rounded-full border border-[#c59b27]/50 flex flex-col items-center justify-center bg-[#0c3843]/70 shadow-lg shadow-[#071d23] py-1 select-none">
-            <span className="font-pinyon text-2xl gold-text-gradient leading-none">H</span>
-            <div className="flex items-center gap-1 my-[-3px]">
-              <span className="w-2.5 h-[1px] bg-[#c59b27]/70" />
-              <span className="font-cormorant italic text-[11px] text-[#e8c76b]">&amp;</span>
-              <span className="w-2.5 h-[1px] bg-[#c59b27]/70" />
-            </div>
-            <span className="font-pinyon text-2xl gold-text-gradient leading-none">P</span>
-          </div>
-          <span className="font-cinzel text-[10px] sm:text-[11px] tracking-[0.3em] text-[#e8c76b] uppercase mt-3">
-            Wedding of Hikety &amp; Wilson
-          </span>
-        </div>
+      {/* Center content: Simple 'Invitation' and 'Open the card' only */}
+      <div className="relative z-10 flex flex-col items-center text-center max-w-sm mx-auto select-none">
+        {/* Simple elegant label */}
+        <span className="font-cinzel text-xs sm:text-sm tracking-[0.4em] text-[#e8c76b] uppercase mb-8 opacity-90">
+          Invitation
+        </span>
 
-        {/* Center Prominent Luxury Gold Gradient Button */}
+        {/* Prominent Luxury Gold Gradient Button */}
         <button
           onClick={triggerGoldConfettiAndOpen}
           type="button"
-          className="relative group px-9 sm:px-12 py-3.5 sm:py-4 rounded-sm text-sm sm:text-base font-cinzel font-bold tracking-[0.25em] uppercase text-[#071d23] shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+          className="relative group px-10 sm:px-14 py-4 sm:py-4.5 rounded-sm text-sm sm:text-base font-cinzel font-bold tracking-[0.25em] uppercase text-[#071d23] shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
           style={{
             background:
               'linear-gradient(135deg, #fff3d1 0%, #e8c76b 25%, #c59b27 50%, #f3e5ab 75%, #9b7818 100%)',
@@ -114,11 +103,6 @@ export const OpeningHero: React.FC<OpeningHeroProps> = ({ onOpenCard }) => {
           {/* Subtle hover golden ring glow */}
           <div className="absolute inset-0 rounded-sm ring-2 ring-[#f5e4b7] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         </button>
-
-        {/* Quiet footnote */}
-        <p className="font-cormorant italic text-xs sm:text-sm text-[#a3c3cb]/75 mt-8 tracking-wide">
-          October 20, 2026 &bull; Satakha, Nagaland
-        </p>
       </div>
     </div>
   );

@@ -2,17 +2,24 @@ import React from 'react';
 
 /**
  * Faithful botanical wreath & initials design matching image.png
- * Features an asymmetric wild-flower & bud wreath in slate-blue/navy
+ * Features an asymmetric wild-flower & bud wreath
  * with the bride & groom's initials stacked vertically:
  *     H
  *   - & -
  *     P
- * in warm antique gold calligraphy.
+ * with crystal clear, elegant calligraphy.
  */
 export const BrideGroomWreathMonogram: React.FC<{
   className?: string;
   size?: number;
-}> = ({ className = '', size = 160 }) => {
+  colorMode?: 'navy' | 'gold';
+}> = ({ className = '', size = 160, colorMode = 'navy' }) => {
+  const isGold = colorMode === 'gold';
+  const strokeColor = isGold ? '#d4af37' : '#26435f';
+  const flowerFill = isGold ? '#fff8e7' : '#eef4fa';
+  const flowerStroke = isGold ? '#c59b27' : '#26435f';
+  const leafColor = isGold ? '#e8c76b' : '#26435f';
+
   return (
     <div
       className={`relative flex items-center justify-center select-none ${className}`}
@@ -26,18 +33,28 @@ export const BrideGroomWreathMonogram: React.FC<{
       >
         <defs>
           <linearGradient id="monogramGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f3e0aa" />
-            <stop offset="25%" stopColor="#d4af37" />
-            <stop offset="55%" stopColor="#b88a1b" />
+            <stop offset="0%" stopColor="#fff3d1" />
+            <stop offset="25%" stopColor="#e8c76b" />
+            <stop offset="55%" stopColor="#d4af37" />
             <stop offset="80%" stopColor="#8a670f" />
             <stop offset="100%" stopColor="#c59b27" />
           </linearGradient>
+          <linearGradient id="wreathGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fdf1cd" />
+            <stop offset="50%" stopColor="#d4af37" />
+            <stop offset="100%" stopColor="#a37e19" />
+          </linearGradient>
         </defs>
 
+        {/* Ambient subtle glow when in gold mode */}
+        {isGold && (
+          <circle cx="120" cy="110" r="85" fill="#c59b27" fillOpacity="0.08" filter="blur(10px)" />
+        )}
+
         {/* ========================================================================= */}
-        {/* BOTANICAL WILDFLOWER WREATH (Deep Slate Navy #26435f, #335577, #456b92)  */}
+        {/* BOTANICAL WILDFLOWER WREATH                                              */}
         {/* ========================================================================= */}
-        <g stroke="#26435f" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        <g stroke={isGold ? 'url(#wreathGoldGrad)' : strokeColor} strokeLinecap="round" strokeLinejoin="round" fill="none">
           {/* Base crossing stems */}
           <path d="M 68 185 C 90 205 130 208 160 188" strokeWidth="1.2" opacity="0.9" />
           <path d="M 85 198 C 110 210 142 205 174 182" strokeWidth="1.0" opacity="0.8" />
@@ -91,8 +108,8 @@ export const BrideGroomWreathMonogram: React.FC<{
           <path d="M 135 196 C 146 208 158 212 168 214" strokeWidth="0.7" />
         </g>
 
-        {/* Small 5-petal wildflower blossoms in slate navy with fine outlines & centers */}
-        <g stroke="#26435f" strokeWidth="0.8" fill="#eef4fa" fillOpacity="0.85">
+        {/* Small 5-petal wildflower blossoms with fine outlines & centers */}
+        <g stroke={flowerStroke} strokeWidth="0.8" fill={flowerFill} fillOpacity={isGold ? '0.95' : '0.85'}>
           {/* Flower Left 1 */}
           <g transform="translate(26, 126) scale(0.9)">
             <circle cx="0" cy="-4" r="3.2" />
@@ -100,7 +117,7 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="3" cy="4" r="3.2" />
             <circle cx="-3" cy="4" r="3.2" />
             <circle cx="-4" cy="-1" r="3.2" />
-            <circle cx="0" cy="0" r="1.6" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.6" fill={flowerStroke} stroke="none" />
           </g>
 
           {/* Flower Left 2 */}
@@ -110,7 +127,7 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="3" cy="4" r="3" />
             <circle cx="-3" cy="4" r="3" />
             <circle cx="-4" cy="-1" r="3" />
-            <circle cx="0" cy="0" r="1.5" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.5" fill={flowerStroke} stroke="none" />
           </g>
 
           {/* Flower Left Lower */}
@@ -120,7 +137,7 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="2.5" cy="3.5" r="2.8" />
             <circle cx="-2.5" cy="3.5" r="2.8" />
             <circle cx="-3.5" cy="-1" r="2.8" />
-            <circle cx="0" cy="0" r="1.4" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.4" fill={flowerStroke} stroke="none" />
           </g>
 
           {/* Flower Right 1 */}
@@ -130,7 +147,7 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="3" cy="4" r="3.2" />
             <circle cx="-3" cy="4" r="3.2" />
             <circle cx="-4" cy="-1" r="3.2" />
-            <circle cx="0" cy="0" r="1.6" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.6" fill={flowerStroke} stroke="none" />
           </g>
 
           {/* Flower Right 2 */}
@@ -140,7 +157,7 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="3" cy="4" r="3" />
             <circle cx="-3" cy="4" r="3" />
             <circle cx="-4" cy="-1" r="3" />
-            <circle cx="0" cy="0" r="1.5" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.5" fill={flowerStroke} stroke="none" />
           </g>
 
           {/* Flower Right Lower */}
@@ -150,12 +167,12 @@ export const BrideGroomWreathMonogram: React.FC<{
             <circle cx="2.5" cy="3.5" r="2.8" />
             <circle cx="-2.5" cy="3.5" r="2.8" />
             <circle cx="-3.5" cy="-1" r="2.8" />
-            <circle cx="0" cy="0" r="1.4" fill="#26435f" stroke="none" />
+            <circle cx="0" cy="0" r="1.4" fill={flowerStroke} stroke="none" />
           </g>
         </g>
 
         {/* Wildflower leaves, pods, and florets along branches */}
-        <g fill="#26435f" opacity="0.85">
+        <g fill={leafColor} opacity={isGold ? '0.95' : '0.85'}>
           {/* Left side leaves/buds */}
           <path d="M 28 112 C 25 106 28 102 32 106 C 30 110 29 111 28 112 Z" />
           <path d="M 36 90 C 32 85 36 80 40 85 C 38 88 37 89 36 90 Z" />
@@ -180,7 +197,7 @@ export const BrideGroomWreathMonogram: React.FC<{
         </g>
 
         {/* Base small botanical sprig */}
-        <g stroke="#26435f" strokeWidth="0.7" fill="#26435f" opacity="0.75">
+        <g stroke={flowerStroke} strokeWidth="0.7" fill={leafColor} opacity="0.8">
           <circle cx="108" cy="188" r="1.3" />
           <circle cx="118" cy="192" r="1.4" />
           <circle cx="128" cy="189" r="1.3" />
@@ -188,72 +205,75 @@ export const BrideGroomWreathMonogram: React.FC<{
         </g>
 
         {/* ========================================================================= */}
-        {/* MONOGRAM INITIALS (Exact Vertical Layout from image.png):                 */}
-        {/*                     H                                                     */}
-        {/*                   - & -                                                   */}
-        {/*                     P                                                     */}
-        {/* Rendered directly in SVG with high-contrast rich gold foil & shadow       */}
+        {/* MONOGRAM INITIALS (Native SVG Vector Rendering - ZERO CSS Clipping)       */}
+        {/* Full letter P with complete vertical stem & upper loop is 100% visible     */}
         {/* ========================================================================= */}
-        <defs>
-          <linearGradient id="richMonogramGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#e8c76b" />
-            <stop offset="30%" stopColor="#b88a1b" />
-            <stop offset="65%" stopColor="#8a670f" />
-            <stop offset="100%" stopColor="#6e4f04" />
-          </linearGradient>
-          <filter id="monogramDepth" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="1.2" stdDeviation="0.6" floodColor="#4a3502" floodOpacity={0.35} />
-          </filter>
-        </defs>
-
-        {/* Top Initial "H" */}
-        <text
-          x="120"
-          y="82"
-          textAnchor="middle"
-          fontFamily="'Pinyon Script', cursive"
-          fontSize="56"
-          fontWeight="normal"
-          fill="url(#richMonogramGold)"
-          filter="url(#monogramDepth)"
-          className="select-none"
+        <g
+          id="monogram-initials"
+          style={{
+            filter: isGold
+              ? 'drop-shadow(0 2px 6px rgba(0,0,0,0.65)) drop-shadow(0 0 10px rgba(232,199,107,0.4))'
+              : 'drop-shadow(0 1px 2px rgba(138,103,15,0.45))',
+          }}
         >
-          H
-        </text>
-
-        {/* Middle Divider "- & -" */}
-        <g opacity="0.85">
-          <line x1="94" y1="102" x2="110" y2="102" stroke="#8a670f" strokeWidth="1" strokeLinecap="round" />
+          {/* Top Initial "H" - Spencerian Script Capital H */}
           <text
             x="120"
-            y="106"
+            y="76"
+            textAnchor="middle"
+            fontFamily="'Alex Brush', 'Great Vibes', cursive"
+            fontSize="45"
+            fontWeight="normal"
+            fill="url(#monogramGold)"
+          >
+            H
+          </text>
+
+          {/* Middle Divider "- & -" */}
+          <line
+            x1="86"
+            y1="102"
+            x2="108"
+            y2="102"
+            stroke="url(#monogramGold)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <text
+            x="120"
+            y="107"
             textAnchor="middle"
             fontFamily="'Cormorant Garamond', Georgia, serif"
             fontStyle="italic"
-            fontSize="18"
+            fontSize="17"
             fontWeight="600"
-            fill="#8a670f"
-            className="select-none"
+            fill="url(#monogramGold)"
           >
             &amp;
           </text>
-          <line x1="130" y1="102" x2="146" y2="102" stroke="#8a670f" strokeWidth="1" strokeLinecap="round" />
-        </g>
+          <line
+            x1="132"
+            y1="102"
+            x2="154"
+            y2="102"
+            stroke="url(#monogramGold)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
 
-        {/* Bottom Initial "P" - prominent, bold, highly legible */}
-        <text
-          x="120"
-          y="154"
-          textAnchor="middle"
-          fontFamily="'Pinyon Script', cursive"
-          fontSize="56"
-          fontWeight="normal"
-          fill="url(#richMonogramGold)"
-          filter="url(#monogramDepth)"
-          className="select-none"
-        >
-          P
-        </text>
+          {/* Bottom Initial "P" - Complete Spencerian Script Capital P with full vertical stem & loop */}
+          <text
+            x="120"
+            y="156"
+            textAnchor="middle"
+            fontFamily="'Alex Brush', 'Great Vibes', cursive"
+            fontSize="48"
+            fontWeight="normal"
+            fill="url(#monogramGold)"
+          >
+            P
+          </text>
+        </g>
       </svg>
     </div>
   );
