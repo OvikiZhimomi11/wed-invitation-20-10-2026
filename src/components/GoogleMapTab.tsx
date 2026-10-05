@@ -9,11 +9,10 @@ interface GoogleMapTabProps {
 export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
   const [copied, setCopied] = useState(false);
 
-  const churchName = 'Satakha Town Baptist Church';
+  const churchName = 'Satakha Town Baptist Church (STBC)';
   const fullAddress = 'Satakha Town Baptist Church, Satakha, Zunheboto District, Nagaland 798620';
-  const coordinates = '26.0125° N, 94.4856° E';
-  const googleMapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=26.0125,94.4856';
-  const googleMapsSearchUrl = 'https://www.google.com/maps/search/?api=1&query=Satakha+Town+Baptist+Church+Nagaland';
+  const googleMapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=STBC+Satakha+Nagaland';
+  const googleMapsSearchUrl = 'https://www.google.com/maps/search/?api=1&query=STBC+Satakha+Nagaland';
 
   const handleCopyAddress = async () => {
     try {
@@ -64,15 +63,15 @@ export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
           </p>
         </div>
 
-        {/* Live Interactive Google Map Embed (Zero image asset dependencies) */}
+        {/* Live Interactive Google Map Embed from provided STBC iframe code */}
         <div className="relative w-full h-64 sm:h-72 rounded border border-[#c59b27]/50 overflow-hidden shadow-inner bg-[#071d23]">
           <iframe
-            title="Satakha Town Baptist Church Google Map Location"
-            src="https://maps.google.com/maps?q=Satakha+Town+Baptist+Church,+Zunheboto,+Nagaland&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            title="Satakha Town Baptist Church (STBC) Location"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28705.770392559323!2d94.4069143743164!3d25.92795750000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3747cbbe1cc34565%3A0x6bad69a99a1ff912!2sSTBC!5e0!3m2!1sen!2sus!4v1791172944263!5m2!1sen!2sus"
             className="w-full h-full border-0 filter contrast-105"
             loading="lazy"
             allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
           {/* Subtle frame sheen */}
           <div className="absolute inset-0 pointer-events-none border border-[#c59b27]/30 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]" />
@@ -90,9 +89,6 @@ export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
                 <p className="font-cormorant text-stone-300 text-xs sm:text-sm mt-0.5">
                   Satakha, Zunheboto District, Nagaland
                 </p>
-                <div className="flex items-center gap-2 mt-1 text-[11px] text-[#e8c76b]/80 font-mono">
-                  <span>Coordinates: {coordinates}</span>
-                </div>
               </div>
             </div>
 
