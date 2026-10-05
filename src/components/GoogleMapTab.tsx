@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Navigation, Copy, Check, ExternalLink, Clock, Calendar, Church } from 'lucide-react';
+import { MapPin, Navigation, Copy, Check, ExternalLink, Church } from 'lucide-react';
 import { VintageCorner } from './Ornaments';
 
 interface GoogleMapTabProps {
@@ -58,9 +58,6 @@ export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
               Wedding Venue Location
             </h2>
           </div>
-          <p className="font-cormorant italic text-sm text-[#a3c3cb]">
-            Join Hikety &amp; Wilson at the sacred altar of Satakha
-          </p>
         </div>
 
         {/* Live Interactive Google Map Embed from provided STBC iframe code */}
@@ -110,20 +107,6 @@ export const GoogleMapTab: React.FC<GoogleMapTabProps> = () => {
                 </>
               )}
             </button>
-          </div>
-
-          <div className="h-[1px] w-full bg-[#c59b27]/20" />
-
-          {/* Schedule Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-stone-300 text-[11.5px]">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-3.5 h-3.5 text-[#e8c76b]" />
-              <span>Tuesday, October 20, 2026</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-[#e8c76b]" />
-              <span>10:00 A.M. IST (Holy Matrimony)</span>
-            </div>
           </div>
         </div>
 
